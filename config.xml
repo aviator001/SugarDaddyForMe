@@ -1,16 +1,14 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<widget id="com.sugardaddy.app" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://cordova.apache.org/ns/1.0" xmlns:android = "http://schemas.android.com/apk/res/android">
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="sugar.daddy.forme" version="1.0" versionCode="1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>SugarDaddy.com</name>
     <description>
-       Sugar Daddy Dating Site
-    </description>
-    <author email="dev@sugardaddy.com" href="http://cordova.io">
-        Sugar Daddy Dating Team
-    </author>
-    <content src="index.html" />
-    <plugin name="cordova-plugin-whitelist" spec="1" />
+A new experience from the pioneeers of sugar daddy dating 
+</description>
+    <author email="g@terrawire.com" href="http://sugardaddy.com">
+		Sugar Daddy Dating Team
+	</author>
+     <content src="index.html" />
     <access origin="*" />
-   <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
@@ -48,23 +46,74 @@
     <plugin name="android-camera-permission" spec="~1.0.0" />
     <plugin name="phonegap-plugin-local-notification" version="1.0.1" />
     <plugin name="cordova-android-support-gradle-release" />
-	<gap:plugin name="cordova-plugin-customurlscheme" source="npm">    <plugin name="cordova-plugin-websocket" spec="^0.12.2" />
-    <plugin name="cordova-plugin-device" spec="^2.0.2" />
+	<gap:plugin name="cordova-plugin-customurlscheme" source="npm">
+	  <param name="URL_SCHEME" value="sdfm" />
+	</gap:plugin>
     <platform name="android">
-        <allow-intent href="market:*" />
-        <preference name="android-minSdkVersion" value="21" />
-        <preference name="android-targetSdkVersion" value="21" />
-        <config-file parent="/*" target="AndroidManifest.xml">
-            <uses-permission android:name="android.permission.RECORD_AUDIO" />
-            <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+        <feature name="Camera">
+            <param name="android-package" value="org.apache.cordova.camera.CameraLauncher" />
+        </feature>
+        <feature name="File">
+            <param name="android-package" value="org.apache.cordova.file.FileUtils" />
+            <param name="onload" value="true" />
+        </feature>
+        <allow-navigation href="cdvfile:*" />
+        <feature name="Capture">
+            <param name="android-package" value="com.android.plugins.Permissions" />
+        </feature>
+        <feature name="Geolocation">
+            <param name="android-package" value="org.apache.cordova.geolocation.Geolocation" />
+        </feature>
+        <feature name="InAppBrowser">
+            <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
+        </feature>
+	    <config-file target="res/values/strings.xml" parent="/*">
+        <string name="title">sdfm</string>
+        <string name="filter_view_https_sugardaddy">sdfm</string>
+		</config-file> 	
+		<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+			<supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:resizeable="true" android:smallScreens="true" android:xlargeScreens="true" />
+            <uses-permission android:name="android.permission.INTERNET" />
+            <application android:hardwareAccelerated="true" android:icon="@mipmap/icon" android:label="@string/app_name" android:supportsRtl="true">
+                <activity android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale" android:label="@string/activity_name" android:launchMode="singleTop" android:name="MainActivity" android:theme="@android:style/Theme.DeviceDefault.NoActionBar" android:windowSoftInputMode="adjustResize">
+                    <intent-filter android:label="@string/launcher_name">
+                        <action android:name="android.intent.action.MAIN" />
+                        <category android:name="android.intent.category.LAUNCHER" />
+                    </intent-filter>
+                </activity>
+            </application>
+            <uses-sdk android:minSdkVersion="16" android:targetSdkVersion="28" />
             <uses-permission android:name="android.permission.CAMERA" />
-            <uses-feature android:name="android.hardware.camera" />
-			<uses-permission android:name="android.permission.INTERNET" />
-        </config-file>
+            <uses-permission android:name="android.permission.MICROPHONE" />
+            <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+			<activity
+				android:name="sugar.daddy.online"
+				android:label="@string/title" >
+				<intent-filter android:label="@string/filter_view_https_sugardaddy">
+					<action android:name="android.intent.action.VIEW" />
+					<category android:name="android.intent.category.DEFAULT" />
+					<category android:name="android.intent.category.BROWSABLE" />
+					<data android:scheme="sdfm"
+						  android:host="sugar.daddy.online"/>
+				</intent-filter>
+			</activity>			
+        </manifest>
     </platform>
-    <plugin name="cordova-plugin-console" spec="^1.1.0" />
+    <icon src="favicon.png" />	
+    <access origin="*" />
+    <plugin name="cordova-plugin-whitelist" version="1" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <platform name="android">
+        <allow-intent href="market:*" />`
+    </platform>
+    <platform name="ios">
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+    </platform>
     <engine name="android" spec="^9.0.0" />
-    <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
-    <plugin name="cordova-plugin-media-capture" spec="^3.0.2" />
-    <plugin name="cordova-plugin-webrtc" spec="^0.1.1" />
 </widget>
