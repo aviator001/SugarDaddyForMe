@@ -1,31 +1,55 @@
 <?xml version='1.0' encoding='utf-8' ?>
-<widget id="com.gsdf.app" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://cordova.apache.org/ns/1.0" xmlns:android = "http://schemas.android.com/apk/res/android">
-    <name>GaySugarDaddyFinder</name>
+<widget id="com.sugardaddy.app" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://cordova.apache.org/ns/1.0" xmlns:android = "http://schemas.android.com/apk/res/android">
+    <name>SugarDaddy.com</name>
     <description>
-       Gay Sugar Daddy Dating Site
+       Sugar Daddy Dating Site
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        The Team
+    <author email="dev@sugardaddy.com" href="http://cordova.io">
+        Sugar Daddy Dating Team
     </author>
     <content src="index.html" />
     <plugin name="cordova-plugin-whitelist" spec="1" />
     <access origin="*" />
+   <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-    <platform name="android">
-        <allow-intent href="market:*" />
-    </platform>
-    <platform name="ios">
-        <allow-intent href="itms:*" />
-        <allow-intent href="itms-apps:*" />
-    </platform>
-    <plugin name="cordova-plugin-websocket" spec="^0.12.2" />
+    <preference name="orientation" value="portrait"/>
+    <preference name="target-device" value="universal" />
+    <preference name="fullscreen" value="true" />
+    <preference name="webviewbounce" value="false" />
+    <preference name="prerendered-icon" value="false" />
+    <preference name="stay-in-webview" value="true" />
+    <preference name="ios-statusbarstyle" value="black-opaque" />
+    <preference name="detect-data-types" value="true" />
+    <preference name="exit-on-suspend" value="false" />
+    <preference name="disable-cursor" value="true" />
+    <preference name="android-installLocation" value="auto" />
+    <preference name="AllowInlineMediaPlayback" value="true" />
+    <preference name="ChildBrowser" value="false" />
+    <preference name="ErrorUrl" value="err.html" />
+    <preference name="FullScreen" value="true" />
+	<preference name="android-targetSdkVersion" value="28" />
+    <preference name="phonegap-version" value="cli-7.1.0" />
+    <preference name="xwalkMultipleApk" value="false" />
+    <plugin name="cordova-plugin-camera" />
+    <plugin name="cordova-plugin-media-capture" />
+    <plugin name="cordova-plugin-file" version="4.3.2" />
+    <plugin name="cordova-plugin-file-transfer" />
+    <plugin name="cordova-plugin-geolocation" />
+    <plugin name="cordova-plugin-globalization" />
+    <plugin name="cordova-plugin-media" />
+    <plugin name="cordova-plugin-whitelist" version="1.0.0" />
+    <plugin name="cordova-plugin-inappbrowser" version="1.7.1" />
+    <plugin name="cordova-plugin-android-permissions" spec="~0.10.0" />
+    <plugin name="android-camera-permission" spec="~1.0.0" />
+    <plugin name="phonegap-plugin-local-notification" version="1.0.1" />
+    <plugin name="cordova-android-support-gradle-release" />
+	<gap:plugin name="cordova-plugin-customurlscheme" source="npm">    <plugin name="cordova-plugin-websocket" spec="^0.12.2" />
     <plugin name="cordova-plugin-device" spec="^2.0.2" />
-    <plugin name="cordova-plugin-iosrtc" spec="^4.0.2" />
     <platform name="android">
         <allow-intent href="market:*" />
         <preference name="android-minSdkVersion" value="21" />
@@ -39,7 +63,7 @@
         </config-file>
     </platform>
     <plugin name="cordova-plugin-console" spec="^1.1.0" />
-    <engine name="android" spec="7.0.0" />
+    <engine name="android" spec="^9.0.0" />
     <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
     <plugin name="cordova-plugin-media-capture" spec="^3.0.2" />
     <plugin name="cordova-plugin-webrtc" spec="^0.1.1" />
